@@ -17,9 +17,9 @@
 # - RETORNO: Também devemos sempre tipar o valor que a função devolve
 #     usando a sintaxe da seta `->`. Se uma função não retorna nada
 #     (apenas executa uma ação, como um `print`), o tipo de retorno
-#     correto é `None`. Isso evita que a gente tente usar o resultado de
+#     correto é `None`. Isso evita que a gente tente usar o resultado Console
 #     uma função que, na verdade, não retorna nada.
-#
+#Console
 # Vamos ver um exemplo simples de tipagem para começar:
 
 from utils import cyan_print, sep_print
@@ -30,6 +30,7 @@ sep_print()
 def remove_duplicates(items: list[str]) -> list[str]:
     # `dict.fromkeys` gera um dicionário a partir da lista.
     to_dict = dict.fromkeys(items)
+    cyan_print(f"{to_dict = }")
     # `list` converte o dict em lista, remove as duplicatas e mantém a ordem.
     return list(to_dict)
 

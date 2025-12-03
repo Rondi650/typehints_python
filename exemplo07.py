@@ -54,7 +54,7 @@ if __name__ == "__main__":
     # Então abaixo função aceitaria qual tipo?
     get_animal_name(dog)  # Dog
     get_animal_name(cat)  # Cat
-    # get_animal_name(car)  # Cat
+    get_animal_name(car)  # Cat
 
     # Vamos falar
     dog.make_sound()
@@ -65,6 +65,6 @@ if __name__ == "__main__":
 
     dog2: Animal
     dog2 = Dog("Dog2")
-    dog2.run()
+    # dog2.run()
 
     sep_print()
