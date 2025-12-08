@@ -25,27 +25,25 @@
 # que vai usar a função saberá os métodos que pode usar nessa lista sem quebrar
 # o programa.
 #
-from collections.abc import Iterable
-
-from utils import cyan_print, sep_print
-
+from collections.abc import Iterable, Sequence
 
 def concat(items: Iterable[str]) -> str:
+    # if type(items) == dict:
+    #     items = items.values()
+    # first = items[0]
+    # print(f"First item: {first}")
     return "".join(items)
 
+my_list: list[str] = ["a", "b", "c"]
+my_tuple: tuple[str, ...] = ("d", "e", "f")
+my_set: set[str] = {"g", "h", "i"}
+my_dict: dict[int, str] = {0: "Rondinelle", 1: "k", 2: "l"}
 
-letters_list = ["a", "b", "c"]
-letters_set = {"a", "b", "c"}
-letters_str = "abc"
-letters_tuple = "a", "b", "c"
-letters_dict = {"a": None, "b": False, "c": 123}
+print(f'Exemplo com Lista: {concat(my_list)}')   # OK
+print(f'Exemplo com Tupla: {concat(my_tuple)}')  # OK
+print(f'Exemplo com Conjunto: {concat(my_set)}') 
+print(f'Exemplo com Dicionário: {concat(my_dict.values())}') 
 
-sep_print()
-
-cyan_print(f"{concat(letters_list) = !r}")
-cyan_print(f"{concat(letters_set) = !r}")
-cyan_print(f"{concat(letters_str) = !r}")
-cyan_print(f"{concat(letters_tuple) = !r}")
-cyan_print(f"{concat(letters_dict) = !r}")
-
-sep_print()
+# set
+# dict
+# list
