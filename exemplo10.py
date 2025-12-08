@@ -34,7 +34,9 @@
 type C[T] = tuple[T, ...]
 
 integers: C[int] = 1, 0, 1, 0
+print(integers)
 booleans: C[bool] = True, False, True, False
+print(booleans)
 
 # booleans = integers # Não funciona
 # integers = booleans
