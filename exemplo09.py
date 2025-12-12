@@ -27,11 +27,9 @@
 #
 from collections.abc import Iterable, Sequence
 
-def concat(items: Iterable[str]) -> str:
-    # if type(items) == dict:
-    #     items = items.values()
-    # first = items[0]
-    # print(f"First item: {first}")
+def concat(items: Sequence[str]) -> str:
+    first = items[0]
+    print(f"First item: {first}")
     return "".join(items)
 
 my_list: list[str] = ["a", "b", "c"]
@@ -41,8 +39,8 @@ my_dict: dict[int, str] = {0: "Rondinelle", 1: "k", 2: "l"}
 
 print(f'Exemplo com Lista: {concat(my_list)}')   # OK
 print(f'Exemplo com Tupla: {concat(my_tuple)}')  # OK
-print(f'Exemplo com Conjunto: {concat(my_set)}') 
-print(f'Exemplo com Dicionário: {concat(my_dict.values())}') 
+# print(f'Exemplo com Conjunto: {concat(my_set)}') 
+print(f'Exemplo com Dicionário: {concat(list(my_dict.values()))}') 
 
 # set
 # dict

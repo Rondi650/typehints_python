@@ -10,9 +10,7 @@
 # - decrease_volume: diminuir volume até o mínimo.
 #
 
-
 from typing import Final, override
-
 
 class MediaPlayer:
     def __init__(self) -> None:
@@ -32,11 +30,10 @@ class MediaPlayer:
             self._current_volume += 1
             print("Increased:", self._current_volume)
 
-
 class FancyMediaPlayer(MediaPlayer):
     def __init__(self) -> None:
         super().__init__()
-        self._eardrums_protection = 10
+        self._eardrums_protection = 5
 
     @override
     def increase_volume(self) -> None:
@@ -52,13 +49,12 @@ class FancyMediaPlayer(MediaPlayer):
         # O pai promete 100, mas o filho entrega 90.
         # Isso seria uma pós-condição implícita
 
-
 def max_volume_btn_action(mp: MediaPlayer) -> None:
     for _ in range(mp.max_volume):
         mp.increase_volume()
 
-    assert mp.volume == mp.max_volume, "What went wrong here?"
-
+    print("Final volume:", mp.volume)
+    # assert mp.volume == mp.max_volume, "What went wrong here?"
 
 if __name__ == "__main__":
     fancy = FancyMediaPlayer()

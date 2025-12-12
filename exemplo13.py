@@ -38,6 +38,7 @@ class ReadOnlySequence(Sequence[T]):
     @override
     def __getitem__(self, index: int | slice) -> T | Sequence[T]:
         if isinstance(index, int):
+            print(f"Getting item at index {index}")
             return self._data[index]
 
         values = list(self._data.values())[index]

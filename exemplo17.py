@@ -32,23 +32,50 @@ def filter_by_type[T](items: Iterable[object], type_: type[T]) -> list[T]:
 
 
 def reverse_in_groups[T](items: Sequence[T], group_size: int = 2) -> list[T]:
-    return [
-        group
-        for index in range(0, len(items), group_size)
-        for group in reversed(items[index : index + group_size])
-    ]
+    result: list[T] = []
+    
+    print(f"Items originais: {items}")
+    print(f"Tamanho de items: {len(items)}")
+    print(f"Group size: {group_size}\n")
+    
+    for index in range(0, len(items), group_size):
+        print(f"--- Iteração com index = {index} ---")
+        
+        # Mostra o intervalo do fatiamento
+        start = index
+        end = index + group_size
+        print(f"Fatiamento: items[{start}:{end}]")
+        
+        # Pega um "grupo" de items
+        group = items[index : index + group_size]
+        print(f"Group extraído: {group}")
+        print(f"Tamanho do group: {len(group)}")
+        
+        # Inverte o grupo
+        reversed_group = list(reversed(group))
+        print(f"Group revertido: {reversed_group}")
+        
+        # Adiciona cada item do grupo invertido ao resultado
+        for item in reversed_group:
+            result.append(item)
+            print(f"  Adicionando: {item} → result = {result}")
+        
+        print()
+    
+    print(f"Resultado final: {result}\n")
+    return result
 
 
 if __name__ == "__main__":
     sep_print()
 
     mixed = [1, 2, 3, "a", "b", "c", {10, 20}]
-    # filtered: list[set[int]] = filter_by_type(mixed, set)
-    # cyan_print(filtered)
+    filtered: list[set[int]] = filter_by_type(mixed, set)
+    cyan_print(filtered)
 
     sep_print()
 
-    reversed_groups = reverse_in_groups(mixed, group_size=4)
+    reversed_groups = reverse_in_groups(mixed, group_size=2)
     cyan_print(mixed)
     cyan_print(reversed_groups)
 
