@@ -44,17 +44,15 @@ class Duration[T: StrIntFloat]:
     def __repr__(self) -> str:
         return f"Duration({self._value!r})"
 
-
 @dataclass
 class VideoInfo[T: StrIntFloat]:
     name: str
     duration_seconds: Duration[T]
 
-    @property
     def duration_time(self) -> str:  # precisamos corrigir
         if isinstance(self.duration_seconds.value, int | float):
             return seconds_to_time(self.duration_seconds.value)
-        return self.duration_seconds.value
+        return f'Retono de string: {self.duration_seconds.value}'
 
 
 def seconds_to_time(seconds: float) -> str:
@@ -65,14 +63,14 @@ def seconds_to_time(seconds: float) -> str:
 if __name__ == "__main__":
     sep_print()
 
-    d1 = Duration(60)  # ⚠️
-    d2 = Duration("00:10:00")
+    d1 = Duration('00:01:00')  # ⚠️
+    d2 = Duration(80)
 
     v1 = VideoInfo("aula1.mp4", d1)  # ⚠️
     v2 = VideoInfo("aula2.mp4", d2)
 
-    cyan_print(v1, v1.duration_time)  # ⚠️
-    cyan_print(v2, v2.duration_time)
-    cyan_print(v2, v2.duration_seconds)
+    cyan_print(v1.duration_time())  # ⚠️
+    cyan_print(v2.duration_time())
+    cyan_print(v2.duration_seconds)
 
     sep_print()

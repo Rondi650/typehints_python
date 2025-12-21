@@ -56,9 +56,8 @@ def reverse_in_groups[T](items: Sequence[T], group_size: int = 2) -> list[T]:
         print(f"Group revertido: {reversed_group}")
         
         # Adiciona cada item do grupo invertido ao resultado
-        for item in reversed_group:
-            result.append(item)
-            print(f"  Adicionando: {item} → result = {result}")
+        result.extend(reversed_group)
+        print(f"  Adicionando: {reversed_group} → result = {result}")
         
         print()
     
@@ -75,7 +74,7 @@ if __name__ == "__main__":
 
     sep_print()
 
-    reversed_groups = reverse_in_groups(mixed, group_size=2)
+    reversed_groups = reverse_in_groups(mixed, group_size=5)
     cyan_print(mixed)
     cyan_print(reversed_groups)
 

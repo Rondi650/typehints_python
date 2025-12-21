@@ -14,7 +14,7 @@ def multiple_args[A, B, C](a: A, b: B, c: C) -> A | B | C: ...
 
 
 ma = multiple_args(1, "dois", [3])  # int | str | list[int]
-reveal_type(ma)
+print(type(ma).__name__)  # Union
 
 ################################################################################
 

@@ -102,3 +102,5 @@ if __name__ == "__main__":
     cyan_print(data, type(data))  # {'a': 1, 'b': 2}, <class 'dict'>
 
     sep_print()
+
+print(callable(SupportsRead))

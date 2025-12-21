@@ -70,10 +70,16 @@ if __name__ == "__main__":
     data2 = (1, "chave1"), (2, "chave2")
     data3 = (1, (1, 2, 3)), (2, (4, 5, 6))  # ⚠️
 
+    print()
     my_dict1 = MyMutableDict(data=data1)
+    print(my_dict1)
     my_dict1["NOVA_CHAVE"] = 4
     my_dict1["chave2"] = 10000
+    print(my_dict1)
+    print(my_dict1.inv())
     del my_dict1["chave2"]
+    print(my_dict1)
+    print()
 
     for item in my_dict1.items():
         print(item)
