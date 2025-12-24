@@ -57,6 +57,7 @@ if __name__ == "__main__":
         "birth": None,  # Opcional
     }
 
+    cyan_print(my_dict)
     cyan_print(my_dict["id"])
     cyan_print(my_dict["birth"])
     cyan_print(my_dict["gender"])
